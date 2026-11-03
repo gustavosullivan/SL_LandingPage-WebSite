@@ -15,24 +15,24 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "flex-end",
           padding: 72,
-          background: "linear-gradient(145deg, #0d241e 0%, #1a3d32 55%, #2a4f42 100%)",
-          color: "#f6f8f6",
+          background: "linear-gradient(145deg, #071f38 0%, #0c3a66 55%, #2f6f9f 100%)",
+          color: "#f7fafc",
         }}
       >
         <div
           style={{
-            fontSize: 28,
+            fontSize: 26,
             letterSpacing: 6,
             textTransform: "uppercase",
-            color: "#c4b48a",
+            color: "#d4bc7a",
             marginBottom: 18,
           }}
         >
-          Passo Fundo · RS
+          Passo Fundo · RS · Aberto 24h
         </div>
-        <div style={{ fontSize: 96, fontWeight: 600, lineHeight: 1 }}>São Luiz</div>
-        <div style={{ fontSize: 32, marginTop: 20, color: "rgba(246,248,246,0.85)" }}>
-          Funerária · Atendimento 24 horas
+        <div style={{ fontSize: 92, fontWeight: 600, lineHeight: 1 }}>São Luiz</div>
+        <div style={{ fontSize: 30, marginTop: 20, color: "rgba(247,250,252,0.88)" }}>
+          Planos · Cremação · Cremação Pet
         </div>
       </div>
     ),

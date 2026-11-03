@@ -21,13 +21,13 @@ const keywords = [
   "funerária Passo Fundo",
   "Funerária São Luiz",
   "funerária São Luiz Passo Fundo",
-  "casa de velório Passo Fundo",
+  "São Luiz Prev",
+  "São Luiz Plus",
   "plano funerário Passo Fundo",
-  "plano funerário preventivo",
-  "serviços funerários Passo Fundo",
-  "atendimento funerário 24 horas Passo Fundo",
-  "cremação Passo Fundo",
-  "velório Passo Fundo",
+  "cremação imediata Passo Fundo",
+  "cremação pet Passo Fundo",
+  "funerária 24 horas Passo Fundo",
+  "casa de velório Passo Fundo",
 ];
 
 export const metadata: Metadata = {

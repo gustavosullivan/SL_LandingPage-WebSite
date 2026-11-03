@@ -14,7 +14,7 @@ export function FloatingCta() {
       </a>
       <a
         href={site.phone.href}
-        className="rounded-full bg-forest-deep px-5 py-3 text-center text-sm font-semibold text-paper shadow-lg shadow-black/20 transition hover:bg-ink"
+        className="rounded-full bg-navy-deep px-5 py-3 text-center text-sm font-semibold text-paper shadow-lg shadow-black/20 transition hover:bg-ink"
         aria-label={`Ligar para ${site.phone.display}`}
       >
         Ligar 24h

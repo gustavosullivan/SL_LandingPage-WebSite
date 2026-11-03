@@ -4,49 +4,54 @@ export function Contact() {
   return (
     <section id="contato" className="bg-paper py-24 md:py-32">
       <div className="section-pad mx-auto max-w-6xl">
-        <p className="text-xs uppercase tracking-[0.24em] text-leaf">Contato</p>
+        <p className="text-xs font-semibold tracking-[0.24em] text-sky uppercase">
+          Contato
+        </p>
         <h2 className="mt-4 max-w-2xl font-display text-4xl leading-tight font-semibold text-ink md:text-5xl">
-          Estamos no Centro de Passo Fundo
+          Aberto 24h no Centro de Passo Fundo
         </h2>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-          Precisa de atendimento agora ou quer conhecer o plano preventivo? Fale
-          com a Funerária São Luiz.
+          Precisa de atendimento agora, quer contratar um plano ou saber sobre
+          cremação? Fale com a Funerária São Luiz.
         </p>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-ink/45">
+              <p className="text-xs tracking-[0.18em] text-ink/45 uppercase">
                 Telefone
               </p>
               <a
                 href={site.phone.href}
-                className="mt-2 block font-display text-3xl font-semibold text-forest transition hover:text-leaf"
+                className="mt-2 block font-display text-3xl font-semibold text-navy transition hover:text-sky"
               >
                 {site.phone.display}
               </a>
-              <a
-                href={site.phoneAlt.href}
-                className="mt-1 block text-ink-soft transition hover:text-ink"
-              >
-                {site.phoneAlt.display}
-              </a>
+              <p className="mt-2 text-sm text-ink-soft">{site.hoursLabel}</p>
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-ink/45">
-                E-mail
+              <p className="text-xs tracking-[0.18em] text-ink/45 uppercase">
+                E-mail / Site
               </p>
               <a
                 href={`mailto:${site.email}`}
-                className="mt-2 block text-lg text-ink transition hover:text-leaf"
+                className="mt-2 block text-lg text-ink transition hover:text-sky"
               >
                 {site.email}
+              </a>
+              <a
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 block text-ink-soft transition hover:text-ink"
+              >
+                www.lucianocogo.com.br
               </a>
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-ink/45">
+              <p className="text-xs tracking-[0.18em] text-ink/45 uppercase">
                 Endereço
               </p>
               <p className="mt-2 max-w-sm text-base leading-relaxed text-ink-soft">
@@ -60,7 +65,7 @@ export function Contact() {
                 href={site.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-block text-sm font-medium text-leaf underline-offset-4 hover:underline"
+                className="mt-3 inline-block text-sm font-medium text-sky underline-offset-4 hover:underline"
               >
                 Abrir no Google Maps
               </a>
@@ -69,7 +74,7 @@ export function Contact() {
             <div className="flex flex-wrap gap-3 pt-2">
               <a
                 href={site.phone.href}
-                className="rounded-full bg-forest px-6 py-3 text-sm font-semibold text-paper transition hover:bg-forest-deep"
+                className="rounded-full bg-navy px-6 py-3 text-sm font-semibold text-paper transition hover:bg-navy-deep"
               >
                 Ligar agora
               </a>
@@ -88,7 +93,7 @@ export function Contact() {
             <iframe
               title="Mapa da Funerária São Luiz em Passo Fundo"
               src={site.mapsEmbed}
-              className="h-full min-h-[320px] w-full border-0 grayscale-[20%] contrast-[1.05]"
+              className="h-full min-h-[320px] w-full border-0 grayscale-[15%] contrast-[1.05]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen

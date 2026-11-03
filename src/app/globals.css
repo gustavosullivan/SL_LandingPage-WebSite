@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #101814;
-  --ink-soft: #2a3832;
-  --mist: #e7ece9;
-  --paper: #f6f8f6;
-  --forest: #1a3d32;
-  --forest-deep: #0d241e;
-  --leaf: #3d6b58;
-  --brass: #9a8658;
-  --brass-soft: #c4b48a;
-  --line: rgba(16, 24, 20, 0.12);
-  --glow: rgba(157, 184, 168, 0.35);
+  --ink: #0b1a2b;
+  --ink-soft: #3a4d63;
+  --mist: #e8f0f7;
+  --paper: #f7fafc;
+  --navy: #0c3a66;
+  --navy-deep: #071f38;
+  --sky: #2f6f9f;
+  --gold: #b8974f;
+  --gold-soft: #d4bc7a;
+  --line: rgba(12, 58, 102, 0.14);
+  --glow: rgba(47, 111, 159, 0.28);
 }
 
 @theme inline {
@@ -19,11 +19,11 @@
   --color-ink-soft: var(--ink-soft);
   --color-mist: var(--mist);
   --color-paper: var(--paper);
-  --color-forest: var(--forest);
-  --color-forest-deep: var(--forest-deep);
-  --color-leaf: var(--leaf);
-  --color-brass: var(--brass);
-  --color-brass-soft: var(--brass-soft);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-sky: var(--sky);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
   --font-sans: var(--font-outfit);
   --font-display: var(--font-cormorant);
 }
@@ -43,7 +43,7 @@ body {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--leaf) 35%, white);
+  background: color-mix(in oklab, var(--sky) 35%, white);
   color: var(--ink);
 }
 
@@ -92,10 +92,10 @@ body {
 @keyframes softpulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(61, 107, 88, 0.45);
+    box-shadow: 0 0 0 0 rgba(47, 111, 159, 0.45);
   }
   70% {
-    box-shadow: 0 0 0 14px rgba(61, 107, 88, 0);
+    box-shadow: 0 0 0 14px rgba(47, 111, 159, 0);
   }
 }
 
@@ -116,7 +116,7 @@ body {
   pointer-events: none;
   position: absolute;
   inset: 0;
-  opacity: 0.04;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
