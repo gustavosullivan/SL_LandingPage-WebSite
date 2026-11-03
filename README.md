@@ -25,6 +25,8 @@ npm install
 npm run dev
 ```
 
+Abre em **http://localhost:3010** (porta fixa para não conflitar com a SN250 na 3000).
+
 ## Produção
 
 ```bash
