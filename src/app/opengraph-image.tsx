@@ -15,8 +15,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "flex-end",
           padding: 72,
-          background: "linear-gradient(145deg, #002547 0%, #003764 55%, #c98141 140%)",
-          color: "#ffffff",
+          background: "linear-gradient(145deg, #071f38 0%, #0c3a66 55%, #2f6f9f 100%)",
+          color: "#f7fafc",
         }}
       >
         <div
@@ -24,15 +24,15 @@ export default function OpenGraphImage() {
             fontSize: 26,
             letterSpacing: 6,
             textTransform: "uppercase",
-            color: "#f0d2b0",
+            color: "#d4bc7a",
             marginBottom: 18,
           }}
         >
-          Passo Fundo · RS · Desde 1999
+          Passo Fundo · RS · Aberto 24h
         </div>
-        <div style={{ fontSize: 84, fontWeight: 700, lineHeight: 1 }}>São Luiz</div>
-        <div style={{ fontSize: 36, marginTop: 18, color: "rgba(255,255,255,0.92)" }}>
-          Homenageando Vidas
+        <div style={{ fontSize: 92, fontWeight: 600, lineHeight: 1 }}>São Luiz</div>
+        <div style={{ fontSize: 30, marginTop: 20, color: "rgba(247,250,252,0.88)" }}>
+          Planos · Cremação · Cremação Pet
         </div>
       </div>
     ),

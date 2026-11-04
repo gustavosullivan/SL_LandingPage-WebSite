@@ -4,9 +4,9 @@ export const site = {
   brandLine: "São Luiz Funerária",
   legalName: "TUC Comércio de Urnas Funérarias Ltda",
   cnpj: "03.236.823/0001-09",
-  tagline: "Homenageando Vidas",
-  subtitle:
-    "Na Funerária São Luiz cuidamos de todos os detalhes para homenagear o seu ente querido. Atendimento humanizado, planos acessíveis e plantão 24 horas em Passo Fundo.",
+  tagline: "Todos os momentos. Cuidado e respeito quando sua família mais precisa.",
+  heroLead:
+    "Na Funerária São Luiz cuidamos de cada detalhe para homenagear quem você ama. Atendimento humanizado, planos Prev e Plus, cremação e cremação pet.",
   description:
     "Funerária São Luiz em Passo Fundo/RS. Aberta 24 horas. Planos São Luiz Prev e Plus, cremação imediata e cremação pet. Rua Teixeira Soares, 1118 — Centro.",
   url: "https://www.lucianocogo.com.br",
@@ -43,39 +43,6 @@ export const site = {
   hoursLabel: "Aberto 24 horas",
 } as const;
 
-export const highlightServices = [
-  {
-    title: "Cerimônias",
-    href: "#contato",
-    image:
-      "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Planos de Assistência",
-    href: "#planos",
-    image:
-      "https://images.unsplash.com/photo-1490750967868-88aa4486af76?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Cremação",
-    href: "#cremacao",
-    image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Serviços PET",
-    href: "#pet",
-    image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Urnas e memoriais",
-    href: "#planos",
-    image:
-      "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80",
-  },
-] as const;
-
 export const services = [
   {
     title: "Planos funerários",
@@ -100,21 +67,6 @@ export const services = [
   {
     title: "Atendimento 24h",
     text: "Equipe disponível a qualquer hora no Centro de Passo Fundo. Ligue (54) 3312-2688.",
-  },
-] as const;
-
-export const testimonials = [
-  {
-    name: "Priscila Fernandes",
-    text: "Achei tudo muito bem organizado, e tudo ocorreu de forma tranquila. Gostei da forma como fui atendida.",
-  },
-  {
-    name: "Família de Passo Fundo",
-    text: "Atendimento humanizado e transparente nos valores. Nos sentimos acolhidos em um momento muito difícil.",
-  },
-  {
-    name: "Cliente São Luiz",
-    text: "Contratei o plano preventivo e a equipe explicou cada detalhe com clareza. Recomendo.",
   },
 ] as const;
 

@@ -2,93 +2,103 @@ import { site } from "@/lib/site";
 
 export function Contact() {
   return (
-    <section id="contato" className="bg-mist py-20 md:py-28">
-      <div className="section-pad mx-auto grid max-w-6xl gap-10 lg:grid-cols-2">
-        <div>
-          <h2 className="text-3xl font-bold text-navy md:text-4xl">Podemos te ajudar?</h2>
-          <p className="mt-4 text-base leading-relaxed text-ink-soft md:text-lg">
-            Se preferir entrar em contato por mensagem, responderemos assim que
-            possível. Preencha o formulário com dúvidas, elogios ou sugestões.
-          </p>
+    <section id="contato" className="bg-paper py-24 md:py-32">
+      <div className="section-pad mx-auto max-w-6xl">
+        <p className="text-xs font-semibold tracking-[0.24em] text-sky uppercase">
+          Contato
+        </p>
+        <h2 className="mt-4 max-w-2xl font-display text-4xl leading-tight font-semibold text-ink md:text-5xl">
+          Aberto 24h no Centro de Passo Fundo
+        </h2>
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
+          Precisa de atendimento agora, quer contratar um plano ou saber sobre
+          cremação? Fale com a Funerária São Luiz.
+        </p>
 
-          <div className="mt-10 space-y-5">
+        <div className="mt-12 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="space-y-8">
             <div>
-              <p className="font-condensed text-xs tracking-[0.18em] text-copper uppercase">
+              <p className="text-xs tracking-[0.18em] text-ink/45 uppercase">
                 Telefone
               </p>
-              <a href={site.phone.href} className="mt-1 block text-2xl font-bold text-navy">
+              <a
+                href={site.phone.href}
+                className="mt-2 block font-display text-3xl font-semibold text-navy transition hover:text-sky"
+              >
                 {site.phone.display}
               </a>
-              <p className="mt-1 text-sm text-ink-soft">{site.hoursLabel}</p>
+              <p className="mt-2 text-sm text-ink-soft">{site.hoursLabel}</p>
             </div>
+
             <div>
-              <p className="font-condensed text-xs tracking-[0.18em] text-copper uppercase">
+              <p className="text-xs tracking-[0.18em] text-ink/45 uppercase">
+                E-mail / Site
+              </p>
+              <a
+                href={`mailto:${site.email}`}
+                className="mt-2 block text-lg text-ink transition hover:text-sky"
+              >
+                {site.email}
+              </a>
+              <a
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 block text-ink-soft transition hover:text-ink"
+              >
+                www.lucianocogo.com.br
+              </a>
+            </div>
+
+            <div>
+              <p className="text-xs tracking-[0.18em] text-ink/45 uppercase">
                 Endereço
               </p>
-              <p className="mt-1 text-sm leading-relaxed text-ink">{site.address.full}</p>
+              <p className="mt-2 max-w-sm text-base leading-relaxed text-ink-soft">
+                {site.address.street}
+                <br />
+                {site.address.neighborhood} · {site.address.city}/{site.address.state}
+                <br />
+                CEP {site.address.postalCode}
+              </p>
               <a
                 href={site.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-block text-sm font-medium text-sky hover:underline"
+                className="mt-3 inline-block text-sm font-medium text-sky underline-offset-4 hover:underline"
               >
                 Abrir no Google Maps
               </a>
             </div>
+
+            <div className="flex flex-wrap gap-3 pt-2">
+              <a
+                href={site.phone.href}
+                className="rounded-full bg-navy px-6 py-3 text-sm font-semibold text-paper transition hover:bg-navy-deep"
+              >
+                Ligar agora
+              </a>
+              <a
+                href={site.whatsapp.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-[var(--line)] px-6 py-3 text-sm font-medium text-ink transition hover:bg-mist"
+              >
+                WhatsApp
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div className="bg-paper p-6 shadow-sm md:p-8">
-          <h3 className="text-xl font-bold text-navy">Envie sua mensagem</h3>
-          <form
-            className="mt-6 space-y-4"
-            action={site.whatsapp.href}
-            method="get"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <input className="input-cogo" name="nome" placeholder="Seu nome" required />
-            <input
-              className="input-cogo"
-              name="telefone"
-              placeholder="Seu telefone (DDD+Número)"
-              required
+          <div className="min-h-[320px] overflow-hidden border border-[var(--line)] bg-mist">
+            <iframe
+              title="Mapa da Funerária São Luiz em Passo Fundo"
+              src={site.mapsEmbed}
+              className="h-full min-h-[320px] w-full border-0 grayscale-[15%] contrast-[1.05]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
             />
-            <input
-              className="input-cogo"
-              type="email"
-              name="email"
-              placeholder="Seu e-mail"
-              required
-            />
-            <textarea
-              className="input-cogo min-h-28"
-              name="mensagem"
-              placeholder="Escreva sua mensagem aqui..."
-              required
-            />
-            <a
-              href={site.whatsapp.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center bg-copper px-6 py-3.5 text-sm font-semibold text-white uppercase transition hover:bg-copper-dark"
-            >
-              Enviar mensagem
-            </a>
-          </form>
-        </div>
-      </div>
-
-      <div className="section-pad mx-auto mt-12 max-w-6xl">
-        <div className="min-h-[280px] overflow-hidden border border-[var(--line)] bg-paper">
-          <iframe
-            title="Mapa da Funerária São Luiz em Passo Fundo"
-            src={site.mapsEmbed}
-            className="h-full min-h-[280px] w-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
+          </div>
         </div>
       </div>
     </section>

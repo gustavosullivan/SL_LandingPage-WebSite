@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
-import { Great_Vibes, Raleway, Roboto_Condensed } from "next/font/google";
+import { Cormorant_Garamond, Great_Vibes, Outfit } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const raleway = Raleway({
-  variable: "--font-raleway",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
   display: "swap",
 });
 
-const script = Great_Vibes({
-  variable: "--font-script",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
+  subsets: ["latin"],
   weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const condensed = Roboto_Condensed({
-  variable: "--font-condensed",
-  subsets: ["latin"],
   display: "swap",
 });
 
@@ -88,7 +89,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${raleway.variable} ${script.variable} ${condensed.variable} h-full`}
+      className={`${outfit.variable} ${cormorant.variable} ${greatVibes.variable} h-full`}
     >
       <body className="min-h-full antialiased">
         <JsonLd />
