@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0b1a2b;
-  --ink-soft: #3a4d63;
-  --mist: #e8f0f7;
-  --paper: #f7fafc;
-  --navy: #0c3a66;
-  --navy-deep: #071f38;
-  --sky: #2f6f9f;
-  --gold: #b8974f;
-  --gold-soft: #d4bc7a;
-  --line: rgba(12, 58, 102, 0.14);
-  --glow: rgba(47, 111, 159, 0.28);
+  --ink: #333333;
+  --ink-soft: #5c5c5c;
+  --mist: #f4f6f8;
+  --paper: #ffffff;
+  --navy: #003764;
+  --navy-deep: #002547;
+  --sky: #2e6ab3;
+  --copper: #c98141;
+  --copper-dark: #b06f32;
+  --line: rgba(0, 55, 100, 0.12);
+  --glow: rgba(201, 129, 65, 0.25);
 }
 
 @theme inline {
@@ -22,10 +22,12 @@
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
   --color-sky: var(--sky);
-  --color-gold: var(--gold);
-  --color-gold-soft: var(--gold-soft);
-  --font-sans: var(--font-outfit);
-  --font-display: var(--font-cormorant);
+  --color-copper: var(--copper);
+  --color-copper-dark: var(--copper-dark);
+  --font-sans: var(--font-raleway);
+  --font-display: var(--font-raleway);
+  --font-script: var(--font-script);
+  --font-condensed: var(--font-condensed);
 }
 
 * {
@@ -39,16 +41,20 @@ html {
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-family: var(--font-raleway), system-ui, sans-serif;
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--sky) 35%, white);
+  background: color-mix(in oklab, var(--copper) 35%, white);
   color: var(--ink);
 }
 
-.font-display {
-  font-family: var(--font-cormorant), Georgia, serif;
+.font-script {
+  font-family: var(--font-script), cursive;
+}
+
+.font-condensed {
+  font-family: var(--font-condensed), sans-serif;
 }
 
 .section-pad {
@@ -57,8 +63,8 @@ body {
 
 .reveal {
   opacity: 0;
-  transform: translateY(1.25rem);
-  animation: rise 0.9s ease forwards;
+  transform: translateY(1rem);
+  animation: rise 0.85s ease forwards;
 }
 
 .reveal-delay-1 {
@@ -67,10 +73,6 @@ body {
 
 .reveal-delay-2 {
   animation-delay: 0.24s;
-}
-
-.reveal-delay-3 {
-  animation-delay: 0.36s;
 }
 
 @keyframes rise {
@@ -85,39 +87,12 @@ body {
     transform: scale(1);
   }
   to {
-    transform: scale(1.08);
-  }
-}
-
-@keyframes softpulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(47, 111, 159, 0.45);
-  }
-  70% {
-    box-shadow: 0 0 0 14px rgba(47, 111, 159, 0);
+    transform: scale(1.06);
   }
 }
 
 .hero-media {
-  animation: kenburns 28s ease-out forwards;
-}
-
-.cta-pulse {
-  animation: softpulse 2.4s ease-out infinite;
-}
-
-.grain {
-  position: relative;
-}
-
-.grain::after {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: kenburns 26s ease-out forwards;
 }
 
 .faq-item summary {
@@ -131,4 +106,34 @@ body {
 
 .faq-item[open] .faq-chevron {
   transform: rotate(180deg);
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0, 37, 71, 0.85) 100%);
+}
+
+.service-card:hover img {
+  transform: scale(1.06);
+}
+
+.input-cogo {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.input-cogo:focus {
+  border-color: var(--copper);
 }
