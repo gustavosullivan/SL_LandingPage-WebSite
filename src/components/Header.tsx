@@ -1,53 +1,71 @@
 "use client";
 
-import { useState } from "react";
-import { Logo } from "@/components/Logo";
+import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 
-const links = [
+const menuLinks = [
   { href: "#servicos", label: "Serviços" },
-  { href: "#estrutura", label: "Estrutura" },
-  { href: "#planos", label: "Planos" },
+  { href: "#estrutura", label: "Nossa estrutura" },
+  { href: "#planos", label: "Planos Prev e Plus" },
   { href: "#cremacao", label: "Cremação" },
-  { href: "#pet", label: "Pet" },
-  { href: "#contato", label: "Fale Conosco" },
+  { href: "#pet", label: "Cremação pet" },
+  { href: "#contato", label: "Fale conosco" },
+  { href: "#faq", label: "Perguntas frequentes" },
 ] as const;
+
+function BrandIcon({
+  href,
+  src,
+  label,
+}: {
+  href: string;
+  src: string;
+  label: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      className="inline-flex transition hover:scale-105"
+    >
+      <img src={src} alt="" className="h-8 w-8" />
+    </a>
+  );
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onPointer = (event: MouseEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-paper/95 backdrop-blur-md">
-      <div className="section-pad mx-auto flex max-w-6xl items-center justify-between py-3.5 md:py-4">
-        <a href="#topo" className="flex items-center gap-2.5 text-navy" onClick={() => setOpen(false)}>
-          <Logo className="h-9 w-9 text-navy" />
-          <span className="flex flex-col leading-none">
-            <span className="text-[1.35rem] font-bold tracking-tight text-navy md:text-[1.55rem]">
-              SÃO LUIZ
-            </span>
-            <span className="text-[0.65rem] tracking-[0.14em] text-ink-soft uppercase">
-              serviços funerários
-            </span>
-          </span>
-        </a>
-
-        <nav className="hidden items-center gap-7 text-sm font-medium text-navy md:flex">
-          {links.map((link) => (
-            <a key={link.href} href={link.href} className="transition hover:text-sky">
-              {link.label}
-            </a>
-          ))}
-          <a
-            href={site.phone.href}
-            className="rounded-full bg-navy px-4 py-2 text-sm font-semibold text-paper transition hover:bg-navy-deep"
-          >
-            {site.phone.display}
-          </a>
-        </nav>
-
+    <header
+      ref={rootRef}
+      className="fixed inset-x-0 top-0 z-40 border-b border-white/60 bg-white/45 shadow-[0_8px_30px_rgba(255,255,255,0.18)] backdrop-blur-xl"
+    >
+      <div className="section-pad relative mx-auto flex h-[4.6rem] max-w-6xl items-center justify-between md:h-[5.4rem]">
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center text-navy md:hidden"
+          className="relative z-10 flex h-10 items-center gap-2 text-navy"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
@@ -57,22 +75,69 @@ export function Header() {
             <span className={`h-0.5 w-full bg-navy transition ${open ? "opacity-0" : ""}`} />
             <span className={`h-0.5 w-full bg-navy transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
           </span>
+          <span className="hidden text-sm font-medium sm:inline">Menu</span>
         </button>
+
+        <a
+          href="#topo"
+          className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
+          onClick={() => setOpen(false)}
+        >
+          <img
+            src="/logo-header.png"
+            alt="São Luiz Funerária"
+            className="h-12 w-auto sm:h-14 md:h-[4.4rem]"
+          />
+        </a>
+
+        <div className="relative z-10 flex items-center gap-2 sm:gap-3">
+          <span className="hidden items-center gap-1.5 text-[0.7rem] font-semibold tracking-[0.16em] text-navy uppercase sm:flex">
+            Nossas redes
+            <svg viewBox="0 0 24 12" className="h-3 w-6" aria-hidden="true">
+              <path
+                d="M1 6h20M16 1.5 21.5 6 16 10.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          <BrandIcon
+            href={site.whatsapp.href}
+            src="/brand/whatsapp.svg"
+            label="WhatsApp da Funerária São Luiz"
+          />
+          <BrandIcon
+            href={site.social.instagram}
+            src="/brand/instagram.svg"
+            label="Instagram da Funerária São Luiz"
+          />
+          <BrandIcon
+            href={site.social.facebook}
+            src="/brand/facebook.svg"
+            label="Facebook da Funerária São Luiz"
+          />
+        </div>
       </div>
 
       {open ? (
-        <div className="border-t border-[var(--line)] bg-paper px-5 py-4 md:hidden">
-          <nav className="flex flex-col gap-4 text-base font-medium text-navy">
-            {links.map((link) => (
-              <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
-                {link.label}
-              </a>
+        <nav className="section-pad border-t border-white/50 bg-white/75 py-3 backdrop-blur-xl">
+          <ul className="mx-auto flex max-w-6xl flex-col gap-1">
+            {menuLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-2.5 text-base font-medium text-navy transition hover:bg-white/80"
+                >
+                  {link.label}
+                </a>
+              </li>
             ))}
-            <a href={site.phone.href} className="font-semibold text-sky" onClick={() => setOpen(false)}>
-              Ligar {site.phone.display}
-            </a>
-          </nav>
-        </div>
+          </ul>
+        </nav>
       ) : null}
     </header>
   );

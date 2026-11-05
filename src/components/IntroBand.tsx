@@ -1,44 +1,40 @@
 import { site } from "@/lib/site";
 
+const points = [
+  { label: "Desde", value: String(site.foundedYear) },
+  { label: "Planos", value: "Prev e Plus" },
+  { label: "Também", value: "Cremação e pet" },
+] as const;
+
 export function IntroBand() {
   return (
-    <section className="bg-paper py-16 md:py-20">
-      <div className="section-pad mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-end">
-        <div>
-          <h2 className="font-display text-4xl font-semibold text-navy md:text-5xl">
-            Funerária São Luiz
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-            {site.heroLead}
-          </p>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-            Se precisar, conte com a São Luiz. Desde {site.foundedYear} homenageando
-            vidas com carinho e respeito em Passo Fundo.
-          </p>
-        </div>
-        <div className="space-y-5 border-t border-[var(--line)] pt-6 md:border-t-0 md:border-l md:pt-0 md:pl-8">
-          <div>
-            <p className="text-xs tracking-[0.18em] text-ink/45 uppercase">Localização</p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft">{site.address.full}</p>
-          </div>
-          <div>
-            <p className="text-xs tracking-[0.18em] text-ink/45 uppercase">Plantão 24h</p>
-            <a
-              href={site.phone.href}
-              className="mt-2 block text-2xl font-semibold text-navy transition hover:text-sky"
+    <section id="sobre" className="bg-paper py-16 md:py-24">
+      <div className="section-pad mx-auto max-w-6xl">
+        <p className="text-xs font-semibold tracking-[0.24em] text-sky uppercase">
+          Passo Fundo · RS
+        </p>
+        <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight font-semibold text-navy md:text-6xl">
+          Funerária São Luiz
+        </h2>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl">
+          Cuidamos de cada detalhe para homenagear quem você ama, com atendimento
+          humanizado e presença de verdade.
+        </p>
+
+        <div className="mt-10 grid gap-3 sm:grid-cols-3">
+          {points.map((point) => (
+            <div
+              key={point.label}
+              className="border border-[var(--line)] bg-mist/70 px-5 py-5 transition duration-300 hover:-translate-y-1 hover:border-navy/25 hover:bg-white"
             >
-              {site.phone.display}
-            </a>
-          </div>
-          <div>
-            <p className="text-xs tracking-[0.18em] text-ink/45 uppercase">E-mail</p>
-            <a
-              href={`mailto:${site.email}`}
-              className="mt-2 block text-sm text-ink-soft transition hover:text-navy"
-            >
-              {site.email}
-            </a>
-          </div>
+              <p className="text-xs font-semibold tracking-[0.18em] text-sky uppercase">
+                {point.label}
+              </p>
+              <p className="mt-2 font-display text-3xl font-semibold text-navy">
+                {point.value}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

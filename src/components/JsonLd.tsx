@@ -7,7 +7,8 @@ export function JsonLd() {
     name: site.name,
     legalName: site.legalName,
     url: site.url,
-    image: `${site.url}/opengraph-image`,
+    image: `${site.url}/logo.png`,
+    logo: `${site.url}/logo.png`,
     description: site.description,
     telephone: site.phone.e164,
     email: site.email,
@@ -44,7 +45,7 @@ export function JsonLd() {
       "@type": "City",
       name: "Passo Fundo",
     },
-    sameAs: [site.social.facebook],
+    sameAs: [site.social.instagram, site.social.facebook],
     priceRange: "$$",
   };
 

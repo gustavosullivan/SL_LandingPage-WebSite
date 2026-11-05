@@ -1,18 +1,22 @@
 import { site } from "@/lib/site";
 
+const heroImage =
+  "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1800&q=80";
+
 export function Hero() {
   return (
-    <section id="topo" className="relative overflow-hidden bg-navy-deep text-paper">
+    <section id="topo" className="relative min-h-[92svh] overflow-hidden bg-navy-deep text-paper md:min-h-[96svh]">
+      <img
+        src={heroImage}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover object-[center_36%]"
+      />
       <div
-        className="hero-media absolute inset-0 bg-cover bg-[center_30%]"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, rgba(7,31,56,0.25) 0%, rgba(7,31,56,0.15) 40%, rgba(7,31,56,0.55) 100%), url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=2400&q=80')",
-        }}
+        className="absolute inset-0 bg-gradient-to-b from-navy-deep/30 via-navy-deep/10 to-navy-deep/70"
         aria-hidden
       />
 
-      <div className="relative z-10 flex min-h-[72svh] flex-col justify-end px-6 pb-14 pt-24 md:min-h-[78svh] md:px-10 md:pb-16 lg:px-16">
+      <div className="relative z-10 flex min-h-[92svh] flex-col justify-end px-6 pb-14 pt-24 md:min-h-[96svh] md:px-10 md:pb-16 lg:px-16">
         <p className="reveal text-sm font-bold tracking-[0.22em] text-paper uppercase md:text-base">
           Desde {site.foundedYear}
         </p>
@@ -25,7 +29,7 @@ export function Hero() {
         </p>
         <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-3">
           <a
-            href="#servicos-destaque"
+            href="#servicos"
             className="inline-flex rounded-sm bg-paper px-6 py-3 text-sm font-semibold text-navy transition hover:bg-mist"
           >
             Todos os serviços

@@ -7,7 +7,6 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HelpBanner } from "@/components/HelpBanner";
 import { Hero } from "@/components/Hero";
-import { HeroServices } from "@/components/HeroServices";
 import { IntroBand } from "@/components/IntroBand";
 import { PetCremation } from "@/components/PetCremation";
 import { Plans } from "@/components/Plans";
@@ -20,7 +19,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <HeroServices />
         <IntroBand />
         <Services />
         <Structure />

@@ -11,7 +11,7 @@ export const site = {
     "Funerária São Luiz em Passo Fundo/RS. Aberta 24 horas. Planos São Luiz Prev e Plus, cremação imediata e cremação pet. Rua Teixeira Soares, 1118 — Centro.",
   url: "https://www.lucianocogo.com.br",
   foundedYear: 1999,
-  email: "falecom@lucianocogo.com.br",
+  email: "atendimentogruposaoluiz@outlook.com",
   phone: {
     display: "(54) 3312-2688",
     href: "tel:+555433122688",
@@ -38,7 +38,8 @@ export const site = {
   mapsEmbed:
     "https://www.google.com/maps?q=R.+Teixeira+Soares,+1118+-+Centro,+Passo+Fundo+-+RS,+99010-080&output=embed",
   social: {
-    facebook: "https://www.facebook.com/425079920923796",
+    instagram: "https://www.instagram.com/funerariasaoluizpf/",
+    facebook: "https://www.facebook.com/funerariasaoluiz/?locale=pt_BR",
   },
   hoursLabel: "Aberto 24 horas",
 } as const;

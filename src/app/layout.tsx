@@ -52,6 +52,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [{ url: "/logo.png", type: "image/png", sizes: "512x512" }],
+    shortcut: "/logo.png",
+    apple: [{ url: "/logo.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -59,11 +64,18 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: "Funerária São Luiz | Passo Fundo/RS — Atendimento 24h",
     description: site.description,
+    images: [
+      {
+        url: "/logo.png",
+        alt: "Logo da Funerária São Luiz",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Funerária São Luiz | Passo Fundo/RS",
     description: site.description,
+    images: ["/logo.png"],
   },
   robots: {
     index: true,
