@@ -138,6 +138,55 @@ body {
   transform: rotate(180deg);
 }
 
+.service-card {
+  aspect-ratio: 3 / 4;
+  opacity: 0;
+  transform: translateY(1.4rem);
+  animation: rise 0.85s ease forwards;
+}
+
+.service-card img {
+  transform: scale(1.04);
+  transition: transform 0.9s ease;
+}
+
+.service-card:hover img {
+  transform: scale(1.12);
+}
+
+.service-card-shade {
+  background: linear-gradient(to top, rgba(7, 31, 56, 0.82) 0%, rgba(7, 31, 56, 0.12) 55%, rgba(7, 31, 56, 0.2) 100%);
+  transition: background 0.5s ease;
+}
+
+.service-card:hover .service-card-shade {
+  background: linear-gradient(to top, rgba(7, 31, 56, 0.9) 0%, rgba(7, 31, 56, 0.28) 60%, rgba(7, 31, 56, 0.15) 100%);
+}
+
+.service-card-shine {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 32%, rgba(255, 255, 255, 0.28) 48%, transparent 64%);
+  transform: translateX(-130%);
+}
+
+.service-card:hover .service-card-shine {
+  transform: translateX(130%);
+  transition: transform 0.85s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-card img,
+  .service-card-shine {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @keyframes structureProgress {
   from {
     width: 0%;

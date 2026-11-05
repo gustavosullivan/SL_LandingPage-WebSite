@@ -37,7 +37,28 @@ function BrandIcon({
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [overHero, setOverHero] = useState(true);
   const rootRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const update = () => {
+      const hero = document.getElementById("topo");
+      if (!hero) {
+        setOverHero(window.scrollY < 180);
+        return;
+      }
+      const headerHeight = rootRef.current?.offsetHeight ?? 86;
+      setOverHero(window.scrollY < hero.offsetTop + hero.offsetHeight - headerHeight);
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -60,7 +81,11 @@ export function Header() {
   return (
     <header
       ref={rootRef}
-      className="fixed inset-x-0 top-0 z-40 border-b border-white/60 bg-white/45 shadow-[0_8px_30px_rgba(255,255,255,0.18)] backdrop-blur-xl"
+      className={`fixed inset-x-0 top-0 z-40 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
+        overHero
+          ? "border-b border-transparent bg-transparent shadow-none"
+          : "border-b border-white/60 bg-white/45 shadow-[0_8px_30px_rgba(255,255,255,0.18)] backdrop-blur-xl"
+      }`}
     >
       <div className="section-pad relative mx-auto flex h-[4.6rem] max-w-6xl items-center justify-between md:h-[5.4rem]">
         <button
