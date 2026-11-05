@@ -1,3 +1,4 @@
+import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Cremation } from "@/components/Cremation";
 import { Differentials } from "@/components/Differentials";
@@ -10,7 +11,6 @@ import { Hero } from "@/components/Hero";
 import { IntroBand } from "@/components/IntroBand";
 import { PetCremation } from "@/components/PetCremation";
 import { Plans } from "@/components/Plans";
-import { Services } from "@/components/Services";
 import { Structure } from "@/components/Structure";
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
       <main>
         <Hero />
         <IntroBand />
-        <Services />
+        <About />
         <Structure />
         <Plans />
         <Cremation />

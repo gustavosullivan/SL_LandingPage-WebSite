@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 
 const menuLinks = [
-  { href: "#servicos", label: "Serviços" },
+  { href: "#sobre", label: "Sobre nós" },
   { href: "#estrutura", label: "Nossa estrutura" },
   { href: "#planos", label: "Planos Prev e Plus" },
   { href: "#cremacao", label: "Cremação" },

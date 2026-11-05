@@ -45,7 +45,7 @@ const cards = [
 
 export function IntroBand() {
   return (
-    <section id="sobre" className="bg-paper py-14 md:py-20">
+    <section id="servicos" className="bg-paper py-14 md:py-20">
       <div className="section-pad mx-auto max-w-6xl">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
           {cards.map((card, index) => (
@@ -78,14 +78,6 @@ export function IntroBand() {
             </a>
           ))}
         </div>
-
-        <h2 className="mt-12 max-w-3xl font-display text-4xl leading-tight font-semibold text-navy md:text-5xl">
-          Funerária São Luiz
-        </h2>
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-soft">
-          Cuidamos de cada detalhe para homenagear quem você ama, com atendimento
-          humanizado e presença de verdade.
-        </p>
       </div>
     </section>
   );
