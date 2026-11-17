@@ -17,17 +17,14 @@ export function Hero() {
       />
 
       <div className="relative z-10 flex min-h-[92svh] flex-col justify-end px-6 pb-14 pt-24 md:min-h-[96svh] md:px-10 md:pb-16 lg:px-16">
-        <p className="reveal text-sm font-bold tracking-[0.22em] text-paper uppercase md:text-base">
-          Desde {site.foundedYear}
-        </p>
-        <h1 className="reveal reveal-delay-1 mt-3 max-w-4xl font-script text-[clamp(3.4rem,12vw,7rem)] leading-[0.95] text-paper">
+        <h1 className="reveal max-w-4xl font-script text-[clamp(3.4rem,12vw,7rem)] leading-[0.95] text-paper">
           Todos os momentos
         </h1>
-        <p className="reveal reveal-delay-2 mt-5 max-w-lg text-base leading-relaxed text-paper/90 md:text-lg">
+        <p className="reveal reveal-delay-1 mt-5 max-w-lg text-base leading-relaxed text-paper/90 md:text-lg">
           Na Funerária São Luiz cuidamos de cada detalhe para homenagear quem você ama —
           com respeito, presença e atendimento 24 horas em Passo Fundo.
         </p>
-        <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-3">
+        <div className="reveal reveal-delay-2 mt-8 flex flex-wrap items-center gap-3">
           <a
             href="#servicos"
             className="inline-flex rounded-sm bg-paper px-6 py-3 text-sm font-semibold text-navy transition hover:bg-mist"
@@ -42,6 +39,16 @@ export function Hero() {
           >
             WhatsApp {site.phone.display}
           </a>
+          <img
+            src="/brand/infinity-memorial.png"
+            alt="Infinity Memorial"
+            className="h-[68px] w-[68px] rounded-sm bg-white object-contain p-1 md:h-[76px] md:w-[76px]"
+          />
+          <img
+            src="/brand/50-anos.png"
+            alt="50 anos"
+            className="h-[68px] w-auto brightness-0 invert md:h-[76px]"
+          />
         </div>
       </div>
     </section>

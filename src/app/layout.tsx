@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Great_Vibes, Outfit } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
-import { site } from "@/lib/site";
+import { searchKeywords, site } from "@/lib/site";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -24,27 +24,14 @@ const greatVibes = Great_Vibes({
   display: "swap",
 });
 
-const keywords = [
-  "funerária Passo Fundo",
-  "Funerária São Luiz",
-  "funerária São Luiz Passo Fundo",
-  "São Luiz Prev",
-  "São Luiz Plus",
-  "plano funerário Passo Fundo",
-  "cremação imediata Passo Fundo",
-  "cremação pet Passo Fundo",
-  "funerária 24 horas Passo Fundo",
-  "casa de velório Passo Fundo",
-];
-
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Funerária São Luiz | Passo Fundo/RS — Atendimento 24h",
+    default: "Funerária São Luiz | Funerária em Passo Fundo — Cremação 24h",
     template: "%s | Funerária São Luiz Passo Fundo",
   },
   description: site.description,
-  keywords,
+  keywords: [...searchKeywords],
   applicationName: site.name,
   authors: [{ name: site.name }],
   creator: site.name,
@@ -62,7 +49,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: site.url,
     siteName: site.name,
-    title: "Funerária São Luiz | Passo Fundo/RS — Atendimento 24h",
+    title: "Funerária São Luiz | Funerária em Passo Fundo — Cremação 24h",
     description: site.description,
     images: [
       {
@@ -73,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Funerária São Luiz | Passo Fundo/RS",
+    title: "Funerária São Luiz | Funerária em Passo Fundo",
     description: site.description,
     images: ["/logo.png"],
   },

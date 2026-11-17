@@ -1,134 +1,136 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const slides = [
   {
-    src: "/estrutura/fachada.jpg",
+    src: "/estrutura/fachada-capa.jpg",
     alt: "Fachada da Funerária São Luiz em Passo Fundo",
     label: "Fachada",
   },
   {
-    src: "/estrutura/recepcao-1.png",
-    alt: "Recepção acolhedora da São Luiz",
+    src: "/estrutura/recepcao-1.jpg",
+    alt: "Recepção da Funerária São Luiz",
     label: "Recepção",
   },
   {
-    src: "/estrutura/recepcao-2.png",
-    alt: "Área de espera da Funerária São Luiz",
-    label: "Acolhimento",
+    src: "/estrutura/recepcao-2.jpg",
+    alt: "Entrada da Funerária São Luiz",
+    label: "Entrada",
   },
   {
-    src: "/estrutura/sala-atendimento.png",
-    alt: "Sala de atendimento personalizado",
+    src: "/estrutura/sala-atendimento.jpg",
+    alt: "Sala de atendimento da Funerária São Luiz",
     label: "Atendimento",
   },
   {
-    src: "/estrutura/loja-vestuario.jpg",
-    alt: "Loja com vestuário e ornamentação",
-    label: "Loja",
-  },
-  {
-    src: "/estrutura/showroom-urnas-1.jpg",
-    alt: "Showroom de urnas da São Luiz",
-    label: "Showroom",
-  },
-  {
-    src: "/estrutura/showroom-urnas-2.png",
-    alt: "Variedade de urnas disponíveis",
+    src: "/estrutura/urnas.jpg",
+    alt: "Urnas da Funerária São Luiz",
     label: "Urnas",
   },
   {
-    src: "/estrutura/showroom-urnas-3.png",
-    alt: "Exposição de urnas com acabamento especial",
-    label: "Opções",
+    src: "/estrutura/espera.jpg",
+    alt: "Sala de espera da Funerária São Luiz",
+    label: "Espera",
   },
-  {
-    src: "/estrutura/frota.jpg",
-    alt: "Frota própria da Funerária São Luiz",
-    label: "Frota 24h",
-  },
+] as const;
+
+const layers = [
+  { rotate: 0, x: "0%", y: "0%", scale: 0.9, z: 30 },
+  { rotate: 1, x: "7%", y: "2%", scale: 0.9, z: 20 },
+  { rotate: -1, x: "-7%", y: "3%", scale: 0.9, z: 10 },
 ] as const;
 
 const highlights = [
   "Atendimento humanizado, com empatia e clareza em cada etapa",
   "Ambiente pensado para acolher famílias com conforto e privacidade",
-  "Estrutura completa: recepção, sala de atendimento, loja e showroom",
+  "Recepção e sala de atendimento para conversar com calma",
   "Variedade de urnas e ornamentação para homenagens dignas",
-  "Frota própria e plantão 24 horas em Passo Fundo",
+  "Plantão 24 horas no Centro de Passo Fundo",
 ] as const;
 
 export function Structure() {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (paused) return;
     const timer = window.setInterval(() => {
-      setIndex((current) => (current + 1) % slides.length);
-    }, 4200);
+      setIndex((current) => {
+        const jump = 1 + Math.floor(Math.random() * (slides.length - 1));
+        return (current + jump) % slides.length;
+      });
+    }, 2000);
     return () => window.clearInterval(timer);
-  }, [paused]);
+  }, []);
 
   const goTo = (next: number) => {
     setIndex((next + slides.length) % slides.length);
   };
 
   return (
-    <section id="estrutura" className="bg-paper py-24 md:py-32">
+    <section id="estrutura" className="bg-paper pt-4 pb-24 md:pt-6 md:pb-32">
       <div className="section-pad mx-auto max-w-6xl">
-        <p className="text-xs font-semibold tracking-[0.24em] text-sky uppercase">
+        <p className="font-display text-3xl font-semibold text-navy md:text-4xl">
           Conheça nosso espaço
         </p>
         <h2 className="mt-4 max-w-2xl font-display text-4xl leading-tight font-semibold text-ink md:text-5xl">
           Nossa estrutura
         </h2>
 
-        <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-          <div
-            className="relative overflow-hidden border border-[var(--line)] bg-mist shadow-[0_24px_60px_rgba(12,58,102,0.12)]"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
-            <div className="relative aspect-[4/3] w-full overflow-hidden">
-              {slides.map((slide, i) => (
-                <div
-                  key={slide.src}
-                  className={`absolute inset-0 transition-all duration-700 ease-out ${
-                    i === index
-                      ? "scale-100 opacity-100"
-                      : "pointer-events-none scale-105 opacity-0"
-                  }`}
-                >
-                  <Image
-                    src={slide.src}
-                    alt={slide.alt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 55vw"
-                    className="object-cover"
-                    priority={i === 0}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/55 via-transparent to-transparent" />
-                </div>
-              ))}
+        <div className="mt-12 grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <div className="relative mx-auto aspect-[4/3] w-full max-w-xl">
+              {slides.map((slide, i) => {
+                const depth = (i - index + slides.length) % slides.length;
+                const layer = depth < layers.length ? layers[depth] : null;
+                const cover = i === 0;
 
-              <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-                <div>
-                  <p className="text-xs font-semibold tracking-[0.2em] text-gold-soft uppercase">
-                    São Luiz
-                  </p>
-                  <p className="mt-1 font-display text-2xl font-semibold text-paper">
-                    {slides[index].label}
-                  </p>
-                </div>
-                <p className="rounded-full bg-paper/15 px-3 py-1 text-xs font-semibold text-paper backdrop-blur-sm">
-                  {index + 1} / {slides.length}
-                </p>
-              </div>
+                return (
+                  <button
+                    key={slide.src}
+                    type="button"
+                    aria-label={slide.label}
+                    onClick={() => setIndex(i)}
+                    className={`absolute inset-0 overflow-hidden border-[6px] border-paper bg-mist shadow-[0_22px_50px_rgba(12,58,102,0.16)] transition-all duration-700 ease-out ${
+                      layer ? "" : "pointer-events-none opacity-0"
+                    }`}
+                    style={
+                      layer
+                        ? {
+                            transform: `translate(${layer.x}, ${layer.y}) rotate(${layer.rotate}deg) scale(${layer.scale})`,
+                            zIndex: layer.z,
+                            opacity: 1,
+                          }
+                        : { zIndex: 0, opacity: 0 }
+                    }
+                  >
+                    {cover ? (
+                      <span
+                        aria-hidden
+                        className="absolute inset-0 scale-110 bg-cover bg-center blur-md"
+                        style={{ backgroundImage: `url(${slide.src})` }}
+                      />
+                    ) : null}
+                    <img
+                      src={slide.src}
+                      alt={slide.alt}
+                      className={`absolute inset-0 h-full w-full ${cover ? "object-contain" : "object-cover"}`}
+                    />
+                    {depth === 0 ? (
+                      <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep/45 to-transparent px-5 pt-16 pb-5 text-left">
+                        <span className="block text-xs font-semibold tracking-[0.2em] text-gold-soft uppercase">
+                          São Luiz
+                        </span>
+                        <span className="mt-1 block font-display text-2xl font-semibold text-paper">
+                          {slide.label}
+                        </span>
+                      </span>
+                    ) : null}
+                  </button>
+                );
+              })}
             </div>
 
-            <div className="flex items-center justify-between gap-3 border-t border-[var(--line)] bg-paper px-4 py-3">
+            <div className="mx-auto mt-6 flex max-w-md items-center justify-between gap-3">
               <button
                 type="button"
                 onClick={() => goTo(index - 1)}
@@ -146,9 +148,7 @@ export function Structure() {
                     onClick={() => setIndex(i)}
                     aria-label={`Ir para ${slide.label}`}
                     className={`h-2.5 rounded-full transition-all ${
-                      i === index
-                        ? "w-8 bg-navy"
-                        : "w-2.5 bg-navy/25 hover:bg-navy/50"
+                      i === index ? "w-8 bg-navy" : "w-2.5 bg-navy/25 hover:bg-navy/50"
                     }`}
                   />
                 ))}
@@ -164,15 +164,8 @@ export function Structure() {
               </button>
             </div>
 
-            <div className="absolute top-0 left-0 h-1 w-full bg-navy/10">
-              <div
-                key={index}
-                className="h-full bg-gold"
-                style={{
-                  animation: paused ? "none" : "structureProgress 4.2s linear forwards",
-                  width: paused ? `${((index + 1) / slides.length) * 100}%` : undefined,
-                }}
-              />
+            <div className="mx-auto mt-3 h-1 max-w-md overflow-hidden bg-navy/10">
+              <div key={index} className="structure-progress h-full bg-gold" />
             </div>
           </div>
 
@@ -183,9 +176,8 @@ export function Structure() {
               difíceis da vida: a perda de um ente querido.
             </p>
             <p className="mt-4 text-base leading-relaxed text-ink-soft md:text-lg">
-              Da recepção ao showroom, cada detalhe do espaço da Funerária São Luiz
-              reforça um atendimento de qualidade, humano e presente, para que
-              você se sinta seguro e bem cuidado.
+              Cada detalhe do espaço da Funerária São Luiz reforça um atendimento
+              de qualidade, humano e presente, para que você se sinta seguro e bem cuidado.
             </p>
 
             <ul className="mt-8 space-y-3.5">

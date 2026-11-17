@@ -5,6 +5,7 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "FuneralHome",
     name: site.name,
+    alternateName: [...site.alternateNames],
     legalName: site.legalName,
     url: site.url,
     image: `${site.url}/logo.png`,
@@ -41,9 +42,22 @@ export function JsonLd() {
       opens: "00:00",
       closes: "23:59",
     },
-    areaServed: {
+    areaServed: site.region.split(",").map((city) => ({
       "@type": "City",
-      name: "Passo Fundo",
+      name: city.replace(" e cidades vizinhas.", "").trim(),
+    })),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Serviços da Funerária São Luiz",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cremação imediata em Passo Fundo" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cremação pet em Passo Fundo" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Plano funeral" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Plano cremação" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cremação imediata" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Translado funerário Brasil e exterior" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Funerária 24 horas em Passo Fundo" } },
+      ],
     },
     sameAs: [site.social.instagram, site.social.facebook],
     priceRange: "$$",

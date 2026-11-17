@@ -1,7 +1,7 @@
 const cards = [
   {
     title: "Cremação",
-    text: "Imediata, com valores claros",
+    text: "Serviço avulso R$ 3.300",
     href: "#cremacao",
     image:
       "https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=1000&q=80",
@@ -15,37 +15,40 @@ const cards = [
     focus: "object-[72%_center]",
   },
   {
-    title: "Urnas",
-    text: "Showroom completo",
+    title: "Nossa estrutura",
+    text: "Conheça o espaço",
     href: "#estrutura",
-    image: "/estrutura/showroom-urnas-1.jpg",
+    kicker: "Espaço",
+    image: "/estrutura/recepcao-1.jpg",
   },
   {
     title: "Planos",
-    text: "Prev e Plus",
+    text: "Funeral R$ 105 · cremação R$ 119",
     href: "#planos",
-    image: "/estrutura/sala-atendimento.png",
-  },
-  {
-    title: "Translado",
-    text: "Frota própria, 24 horas",
-    href: "#servicos",
-    image: "/estrutura/frota.jpg",
-  },
-  {
-    title: "Todos os serviços",
-    text: "Ver a São Luiz por completo",
-    href: "#servicos",
     image:
-      "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1000&q=80",
-    focus: "object-[center_40%]",
+      "https://images.unsplash.com/photo-1435527173128-983b87201f4d?auto=format&fit=crop&w=1000&q=80",
+    focus: "object-center",
+  },
+  {
+    title: "Entre em contato",
+    text: "Ligue ou chame no WhatsApp",
+    href: "#contato",
+    kicker: "Atendimento",
+    image: "/estrutura/fachada-capa.jpg",
+  },
+  {
+    title: "Sobre nós",
+    text: "50 anos de história",
+    href: "#sobre",
+    kicker: "A casa",
+    image: "/sobre-poster.jpg",
     featured: true,
   },
 ] as const;
 
 export function IntroBand() {
   return (
-    <section id="servicos" className="bg-paper py-14 md:py-20">
+    <section id="servicos" className="bg-paper pt-14 pb-4 md:pt-20 md:pb-6">
       <div className="section-pad mx-auto max-w-6xl">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
           {cards.map((card, index) => (
@@ -66,7 +69,7 @@ export function IntroBand() {
               <span className="service-card-shine" aria-hidden />
               <span className="relative flex h-full flex-col justify-end p-4 text-paper md:p-5">
                 <span className="text-[0.65rem] font-semibold tracking-[0.18em] text-gold-soft uppercase">
-                  {"featured" in card && card.featured ? "Ver tudo" : "Serviço"}
+                  {"kicker" in card ? card.kicker : "Serviço"}
                 </span>
                 <span className="mt-1 font-display text-2xl leading-none font-semibold md:text-3xl">
                   {card.title}

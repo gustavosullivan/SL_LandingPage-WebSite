@@ -1,7 +1,5 @@
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
-import { Cremation } from "@/components/Cremation";
-import { Differentials } from "@/components/Differentials";
 import { Faq } from "@/components/Faq";
 import { FloatingCta } from "@/components/FloatingCta";
 import { Footer } from "@/components/Footer";
@@ -9,8 +7,7 @@ import { Header } from "@/components/Header";
 import { HelpBanner } from "@/components/HelpBanner";
 import { Hero } from "@/components/Hero";
 import { IntroBand } from "@/components/IntroBand";
-import { PetCremation } from "@/components/PetCremation";
-import { Plans } from "@/components/Plans";
+import { Offers } from "@/components/Offers";
 import { Structure } from "@/components/Structure";
 
 export default function Home() {
@@ -20,12 +17,9 @@ export default function Home() {
       <main>
         <Hero />
         <IntroBand />
-        <About />
         <Structure />
-        <Plans />
-        <Cremation />
-        <PetCremation />
-        <Differentials />
+        <Offers />
+        <About />
         <Contact />
         <Faq />
         <HelpBanner />

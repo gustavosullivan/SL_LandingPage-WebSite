@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 
 const menuLinks = [
-  { href: "#sobre", label: "Sobre nós" },
   { href: "#estrutura", label: "Nossa estrutura" },
-  { href: "#planos", label: "Planos Prev e Plus" },
+  { href: "#planos", label: "Planos" },
   { href: "#cremacao", label: "Cremação" },
   { href: "#pet", label: "Cremação pet" },
+  { href: "#sobre", label: "Sobre nós" },
   { href: "#contato", label: "Fale conosco" },
   { href: "#faq", label: "Perguntas frequentes" },
 ] as const;
@@ -87,7 +87,7 @@ export function Header() {
           : "border-b border-white/60 bg-white/45 shadow-[0_8px_30px_rgba(255,255,255,0.18)] backdrop-blur-xl"
       }`}
     >
-      <div className="section-pad relative mx-auto flex h-[4.6rem] max-w-6xl items-center justify-between md:h-[5.4rem]">
+      <div className="section-pad relative mx-auto flex h-[5.2rem] max-w-6xl items-center justify-between md:h-[6.2rem]">
         <button
           type="button"
           className="relative z-10 flex h-10 items-center gap-2 text-navy"
@@ -111,7 +111,7 @@ export function Header() {
           <img
             src="/logo-header.png"
             alt="São Luiz Funerária"
-            className="h-12 w-auto sm:h-14 md:h-[4.4rem]"
+            className="h-16 w-auto sm:h-[4.75rem] md:h-[5.75rem]"
           />
         </a>
 

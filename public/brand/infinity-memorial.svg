@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-label="Infinity Memorial">
+  <rect width="720" height="240" fill="#fff"/>
+  <!-- INFINITY with blank for star -->
+  <text
+    x="360"
+    y="118"
+    text-anchor="middle"
+    fill="#0a1628"
+    font-family="Arial Black, Impact, Haettenschweiler, sans-serif"
+    font-size="78"
+    font-weight="900"
+    letter-spacing="18"
+  >INF NITY</text>
+  <!-- star over the space between F and N -->
+  <g transform="translate(318 92)">
+    <path
+      d="M0,-30 L8,-8 L30,0 L8,8 L0,30 L-8,8 L-30,0 L-8,-8 Z"
+      fill="#d09220"
+      stroke="#0a1628"
+      stroke-width="3"
+      stroke-linejoin="round"
+    />
+  </g>
+  <text
+    x="360"
+    y="188"
+    text-anchor="middle"
+    fill="#0a1628"
+    font-family="Arial Black, Impact, Haettenschweiler, sans-serif"
+    font-size="36"
+    font-weight="900"
+    letter-spacing="22"
+  >MEMORIAL</text>
+</svg>
