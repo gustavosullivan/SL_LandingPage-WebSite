@@ -12,6 +12,22 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "funerariasaoluiz.com.br" }],
+        destination: "https://www.funerariasaoluiz.com.br/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "funerariasaoluiz.vercel.app" }],
+        destination: "https://www.funerariasaoluiz.com.br/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

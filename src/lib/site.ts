@@ -9,7 +9,7 @@ export const site = {
     "Na Funerária São Luiz cuidamos de cada detalhe para homenagear quem você ama. Atendimento humanizado, plano Prev, cremação e cremação pet.",
   description:
     "Funerária em Passo Fundo/RS. São Luiz, cremação, cremação pet e plano Prev. Plantão 24 horas no Centro, com atendimento na região.",
-  url: "https://funerariasaoluiz.vercel.app",
+  url: "https://www.funerariasaoluiz.com.br",
   alternateNames: [
     "São Luiz",
     "Funerária São Luiz",
